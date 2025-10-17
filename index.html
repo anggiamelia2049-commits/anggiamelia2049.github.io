@@ -307,7 +307,6 @@
             border-radius: 30px;
             overflow: hidden;
             transition: all 0.4s ease;
-            cursor: pointer;
         }
 
         .project-card:hover {
@@ -320,17 +319,20 @@
             position: relative;
             height: 250px;
             overflow: hidden;
+            background: #1a1a1a;
+            cursor: pointer;
         }
 
         .project-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
             transition: transform 0.4s ease;
         }
 
         .project-card:hover .project-img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .project-info {
@@ -377,7 +379,6 @@
             border: 1px solid rgba(139, 92, 246, 0.3);
             border-radius: 25px;
             overflow: hidden;
-            cursor: pointer;
             transition: all 0.4s ease;
         }
 
@@ -391,17 +392,20 @@
             position: relative;
             height: 220px;
             overflow: hidden;
+            background: #1a1a1a;
+            cursor: pointer;
         }
 
         .certificate-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
             transition: transform 0.4s ease;
         }
 
         .certificate-card:hover .certificate-img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .certificate-info {
@@ -446,20 +450,27 @@
             margin: 2% auto;
             max-width: 90%;
             max-height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             animation: zoomIn 0.4s ease;
         }
 
         .modal-content img {
-            width: 100%;
+            width: auto;
             height: auto;
+            max-width: 100%;
+            max-height: 85vh;
             border-radius: 20px;
             box-shadow: 0 0 80px rgba(139, 92, 246, 0.6);
+            display: block;
+            margin: 0 auto;
         }
 
         .close {
             position: absolute;
-            top: -60px;
-            right: 0;
+            top: 20px;
+            right: 40px;
             color: #fff;
             font-size: 45px;
             cursor: pointer;
@@ -471,6 +482,7 @@
             justify-content: center;
             background: rgba(139, 92, 246, 0.2);
             border-radius: 50%;
+            z-index: 3001;
         }
 
         .close:hover {
@@ -514,6 +526,7 @@
             nav ul { gap: 1rem; flex-wrap: wrap; }
             .hero-text h1 { font-size: 2.5rem; }
             h2.section-title { font-size: 2.5rem; }
+            .close { top: 10px; right: 20px; }
         }
     </style>
 </head>
@@ -539,9 +552,9 @@
                 <p>Siswa SMK Informatika Utama jurusan Pengembangan Perangkat Lunak dan Gim yang passionate dalam pengembangan web. Memiliki pengalaman dalam membangun berbagai aplikasi web dari static website hingga aplikasi CRUD dengan framework modern.</p>
             </div>
             <div class="profile-card">
-                <div class="profile-hexagon" onclick="openModal('https://via.placeholder.com/800x800/8b5cf6/ffffff?text=Your+Photo')">
+                <div class="profile-hexagon" onclick="openModal('https://i.imgur.com/1pkcfSY.png')">
                     <div class="hexagon-shape">
-                        <img src="https://via.placeholder.com/350x350/8b5cf6/ffffff?text=Your+Photo" alt="Anggi" class="profile-img">
+                        <img src="https://i.imgur.com/1pkcfSY.png" alt="Anggi" class="profile-img">
                     </div>
                 </div>
             </div>
@@ -628,9 +641,9 @@
             <h2 class="section-title">Projects</h2>
         </div>
         <div class="projects-bento">
-            <div class="project-card" onclick="openModal('https://via.placeholder.com/800x600/8b5cf6/ffffff?text=Website+Toko+Online')">
-                <div class="project-image">
-                    <img src="https://i.imgur.com/PAyrgm4.png" alt="Toko Online" class="project-img">
+            <div class="project-card">
+                <div class="project-image" onclick="openModal('https://i.imgur.com/PAyrgm4_d.webp?maxwidth=128&shape=square')">
+                    <img src="https://i.imgur.com/PAyrgm4_d.webp?maxwidth=128&shape=square" class="project-img">
                 </div>
                 <div class="project-info">
                     <h3>Website Toko Online Static</h3>
@@ -642,8 +655,8 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="openModal('https://via.placeholder.com/800x600/8b5cf6/ffffff?text=Aplikasi+Kasir')">
-                <div class="project-image">
+            <div class="project-card">
+                <div class="project-image" onclick="openModal('https://i.imgur.com/Vw37hj4_d.webp?maxwidth=128&shape=square')">
                     <img src="https://i.imgur.com/Vw37hj4_d.webp?maxwidth=128&shape=square" alt="Aplikasi Kasir" class="project-img">
                 </div>
                 <div class="project-info">
@@ -656,9 +669,9 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="openModal('https://via.placeholder.com/800x600/8b5cf6/ffffff?text=Aplikasi+CRUD')">
-                <div class="project-image">
-                    <img src="https://i.imgur.com/C44A9sR.png" alt="CRUD" class="project-img">
+            <div class="project-card">
+                <div class="project-image" onclick="openModal('https://i.imgur.com/C44A9sR_d.webp?maxwidth=128&shape=square')">
+                    <img src="https://i.imgur.com/C44A9sR_d.webp?maxwidth=128&shape=square" alt="CRUD" class="project-img">
                 </div>
                 <div class="project-info">
                     <h3>Aplikasi CRUD Penjualan</h3>
@@ -679,8 +692,8 @@
             <h2 class="section-title">Certificates</h2>
         </div>
         <div class="certificates-grid">
-            <div class="certificate-card" onclick="openModal('https://via.placeholder.com/600x400/8b5cf6/ffffff?text=HTML+Certificate')">
-                <div class="certificate-image">
+            <div class="certificate-card">
+                <div class="certificate-image" onclick="openModal('https://i.imgur.com/zI5JCXo.webp')">
                     <img src="https://i.imgur.com/zI5JCXo_d.webp?maxwidth=128&shape=square" alt="HTML" class="certificate-img">
                 </div>
                 <div class="certificate-info">
@@ -690,8 +703,8 @@
                 </div>
             </div>
 
-            <div class="certificate-card" onclick="openModal('https://via.placeholder.com/600x400/8b5cf6/ffffff?text=CSS+Certificate')">
-                <div class="certificate-image">
+            <div class="certificate-card">
+                <div class="certificate-image" onclick="openModal('https://i.imgur.com/JtODrCD_d.webp?maxwidth=128&shape=square')">
                     <img src="https://i.imgur.com/JtODrCD_d.webp?maxwidth=128&shape=square" alt="CSS" class="certificate-img">
                 </div>
                 <div class="certificate-info">
@@ -701,9 +714,9 @@
                 </div>
             </div>
 
-            <div class="certificate-card" onclick="openModal('https://via.placeholder.com/600x400/8b5cf6/ffffff?text=JavaScript')">
-                <div class="certificate-image">
-                    <img src="https://via.placeholder.com/400x220/8b5cf6/ffffff?text=JavaScript" alt="JS" class="certificate-img">
+            <div class="certificate-card">
+                <div class="certificate-image" onclick="openModal('https://via.placeholder.com/600x400/8b5cf6/ffffff?text=JavaScript+Certificate')">
+                    <img src="https://via.placeholder.com/600x400/8b5cf6/ffffff?text=JavaScript+Certificate" alt="JS" class="certificate-img">
                 </div>
                 <div class="certificate-info">
                     <h3>JavaScript Course</h3>
@@ -719,13 +732,14 @@
     </footer>
 
     <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
+        <span class="close" onclick="event.stopPropagation(); closeModal();">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation();">
             <img id="modalImg">
         </div>
     </div>
 
     <script>
+        // Smooth scrolling untuk navigasi
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -735,13 +749,28 @@
             });
         });
 
+        // Animasi skill progress bars
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    document.querySelectorAll('.progress-bar').forEach(bar => {
+                    document.querySelectorAll('.progress-bar').forEach((bar, index) => {
                         const percent = bar.getAttribute('data-percent');
                         const offset = 440 - (440 * percent / 100);
-                        bar.style.strokeDashoffset = offset;
+                        
+                        setTimeout(() => {
+                            bar.style.strokeDashoffset = offset;
+                            const progressText = bar.parentElement.parentElement.querySelector('.progress-text');
+                            let current = 0;
+                            const increment = percent / 50;
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= percent) {
+                                    current = percent;
+                                    clearInterval(timer);
+                                }
+                                progressText.textContent = Math.round(current) + '%';
+                            }, 30);
+                        }, index * 200);
                     });
                 }
             });
@@ -749,17 +778,23 @@
 
         observer.observe(document.querySelector('#skills'));
 
+        // Fungsi untuk membuka modal
         function openModal(src) {
             const modal = document.getElementById('imageModal');
             const img = document.getElementById('modalImg');
             modal.style.display = 'block';
             img.src = src;
+            document.body.style.overflow = 'hidden';
         }
 
+        // Fungsi untuk menutup modal
         function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
+        // Tutup modal dengan tombol ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
         });
