@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anggi Amelia Hermawan - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #2d1b4e 50%, #1a0a2e 75%, #0a0a0a 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        nav {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(139, 92, 246, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a:hover {
+            color: #a855f7;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #a855f7 50%, #6d28d9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideInLeft 1s ease;
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            color: #c4b5fd;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: slideInLeft 1.2s ease;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: #d1d5db;
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+            animation: slideInLeft 1.4s ease;
+        }
+
+        .profile-card {
+            position: relative;
+            animation: float-card 6s ease-in-out infinite;
+        }
+
+        @keyframes float-card {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .profile-hexagon {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+
+        .hexagon-shape {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .hexagon-shape:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 25px 80px rgba(139, 92, 246, 0.7);
+        }
+
+        .profile-img {
+            width: calc(100% - 8px);
+            height: calc(100% - 8px);
+            object-fit: cover;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            color: #a855f7;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        h2.section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .about-content {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 30px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-card {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 25px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateX(10px);
+            border-color: #8b5cf6;
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .education-card h3 {
+            color: #a855f7;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-card p {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .skill-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .circular-progress {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .circular-progress svg {
+            transform: rotate(-90deg);
+        }
+
+        .progress-bg {
+            fill: none;
+            stroke: rgba(139, 92, 246, 0.1);
+            stroke-width: 12;
+        }
+
+        .progress-bar {
+            fill: none;
+            stroke: #a855f7;
+            stroke-width: 12;
+            stroke-linecap: round;
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+            transition: stroke-dashoffset 2s ease;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #a855f7, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .projects-bento {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(10, 10, 10, 0.6);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #8b5cf6;
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
+        }
+
+        .project-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-info h3 {
+            color: #fff;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .project-info p {
+            color: #9ca3af;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #c4b5fd;
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .certificate-card {
+            background: rgba(10, 10, 10, 0.6);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 25px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            border-color: #8b5cf6;
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
+        }
+
+        .certificate-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .certificate-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .certificate-card:hover .certificate-img {
+            transform: scale(1.1);
+        }
+
+        .certificate-info {
+            padding: 1.8rem;
+        }
+
+        .certificate-info h3 {
+            color: #a855f7;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-info p {
+            color: #9ca3af;
+        }
+
+        .certificate-status {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.4rem 1.2rem;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #c4b5fd;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 2% auto;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.4s ease;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 0 80px rgba(139, 92, 246, 0.6);
+        }
+
+        .close {
+            position: absolute;
+            top: -60px;
+            right: 0;
+            color: #fff;
+            font-size: 45px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(139, 92, 246, 0.2);
+            border-radius: 50%;
+        }
+
+        .close:hover {
+            background: rgba(139, 92, 246, 0.4);
+            transform: rotate(90deg);
+        }
+
+        footer {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        footer p {
+            color: #9ca3af;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-80px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .profile-hexagon { width: 280px; height: 280px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { width: 90%; padding: 0.8rem 1rem; }
+            nav ul { gap: 1rem; flex-wrap: wrap; }
+            .hero-text h1 { font-size: 2.5rem; }
+            h2.section-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Halo, Saya<br>Anggi Amelia<br>Hermawan</h1>
+                <h2>Junior Web Developer</h2>
+                <p>Siswa SMK Informatika Utama jurusan Pengembangan Perangkat Lunak dan Gim yang passionate dalam pengembangan web. Memiliki pengalaman dalam membangun berbagai aplikasi web dari static website hingga aplikasi CRUD dengan framework modern.</p>
+            </div>
+            <div class="profile-card">
+                <div class="profile-hexagon" onclick="openModal('https://via.placeholder.com/800x800/8b5cf6/ffffff?text=Your+Photo')">
+                    <div class="hexagon-shape">
+                        <img src="https://via.placeholder.com/350x350/8b5cf6/ffffff?text=Your+Photo" alt="Anggi" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <span class="section-label">Perkenalan</span>
+            <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-content">
+            <p>Halo! Saya Anggi Amelia Hermawan, seorang Junior Web Developer yang sedang menempuh pendidikan di SMK Informatika Utama jurusan Pengembangan Perangkat Lunak dan Gim. Saya memiliki passion yang kuat dalam dunia pemrograman, khususnya dalam pengembangan web.</p>
+            <p>Sebagai pribadi yang aktif dan proaktif, saya terbiasa bekerja dalam tim dan selalu berinisiatif untuk mencari solusi terbaik dalam setiap project. Saya percaya bahwa kolaborasi yang baik dan komunikasi yang efektif adalah kunci kesuksesan dalam mengembangkan sebuah aplikasi.</p>
+            <p>Dengan pengalaman yang telah saya kumpulkan dari berbagai project selama masa pembelajaran, saya terus mengasah kemampuan coding dan mempelajari teknologi-teknologi terbaru untuk meningkatkan kualitas sebagai web developer.</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-header">
+            <span class="section-label">Pendidikan</span>
+            <h2 class="section-title">Education</h2>
+        </div>
+        <div class="education-card">
+            <h3>SMK Informatika Utama</h3>
+            <p><strong>Jurusan:</strong> Pengembangan Perangkat Lunak dan Gim</p>
+            <p><strong>Kelas:</strong> 11 (Tahun 2025)</p>
+            <p><strong>Status:</strong> Aktif</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header">
+            <span class="section-label">Kemampuan</span>
+            <h2 class="section-title">Technical Skills</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="circular-progress">
+                    <svg width="180" height="180">
+                        <circle class="progress-bg" cx="90" cy="90" r="70"></circle>
+                        <circle class="progress-bar" cx="90" cy="90" r="70" data-percent="70"></circle>
+                    </svg>
+                    <div class="progress-text">70%</div>
+                </div>
+                <div class="skill-name">HTML</div>
+            </div>
+            <div class="skill-item">
+                <div class="circular-progress">
+                    <svg width="180" height="180">
+                        <circle class="progress-bg" cx="90" cy="90" r="70"></circle>
+                        <circle class="progress-bar" cx="90" cy="90" r="70" data-percent="70"></circle>
+                    </svg>
+                    <div class="progress-text">70%</div>
+                </div>
+                <div class="skill-name">CSS</div>
+            </div>
+            <div class="skill-item">
+                <div class="circular-progress">
+                    <svg width="180" height="180">
+                        <circle class="progress-bg" cx="90" cy="90" r="70"></circle>
+                        <circle class="progress-bar" cx="90" cy="90" r="70" data-percent="50"></circle>
+                    </svg>
+                    <div class="progress-text">50%</div>
+                </div>
+                <div class="skill-name">PHP</div>
+            </div>
+            <div class="skill-item">
+                <div class="circular-progress">
+                    <svg width="180" height="180">
+                        <circle class="progress-bg" cx="90" cy="90" r="70"></circle>
+                        <circle class="progress-bar" cx="90" cy="90" r="70" data-percent="50"></circle>
+                    </svg>
+                    <div class="progress-text">50%</div>
+                </div>
+                <div class="skill-name">Microsoft Office</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-header">
+            <span class="section-label">Karya</span>
+            <h2 class="section-title">Projects</h2>
+        </div>
+        <div class="projects-bento">
+            <div class="project-card" onclick="openModal('https://via.placeholder.com/800x600/8b5cf6/ffffff?text=Website+Toko+Online')">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Toko+Online" alt="Toko Online" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h3>Website Toko Online Static</h3>
+                    <p>Website toko online static yang dibuat sebagai project pembelajaran di kelas 10. Website ini menampilkan katalog produk dengan desain yang menarik dan responsive.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openModal('https://via.placeholder.com/800x600/8b5cf6/ffffff?text=Aplikasi+Kasir')">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Aplikasi+Kasir" alt="Aplikasi Kasir" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h3>Aplikasi Kasir Sederhana</h3>
+                    <p>Aplikasi kasir sederhana yang dikembangkan menggunakan NetBeans dan JavaScript. Aplikasi ini memiliki fitur perhitungan transaksi dan pencatatan penjualan.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">NetBeans</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openModal('https://via.placeholder.com/800x600/8b5cf6/ffffff?text=Aplikasi+CRUD')">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250/8b5cf6/ffffff?text=CRUD+Penjualan" alt="CRUD" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h3>Aplikasi CRUD Penjualan</h3>
+                    <p>Aplikasi CRUD untuk manajemen data penjualan yang dikembangkan di kelas 11. Project ini menggunakan framework Laravel dengan database MySQL.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <div class="section-header">
+            <span class="section-label">Pencapaian</span>
+            <h2 class="section-title">Certificates</h2>
+        </div>
+        <div class="certificates-grid">
+            <div class="certificate-card" onclick="openModal('https://via.placeholder.com/600x400/8b5cf6/ffffff?text=HTML+Certificate')">
+                <div class="certificate-image">
+                    <img src="https://via.placeholder.com/400x220/8b5cf6/ffffff?text=HTML" alt="HTML" class="certificate-img">
+                </div>
+                <div class="certificate-info">
+                    <h3>HTML Course</h3>
+                    <p>SoloLearn</p>
+                    <span class="certificate-status">Completed</span>
+                </div>
+            </div>
+
+            <div class="certificate-card" onclick="openModal('https://via.placeholder.com/600x400/8b5cf6/ffffff?text=CSS+Certificate')">
+                <div class="certificate-image">
+                    <img src="https://via.placeholder.com/400x220/8b5cf6/ffffff?text=CSS" alt="CSS" class="certificate-img">
+                </div>
+                <div class="certificate-info">
+                    <h3>CSS Course</h3>
+                    <p>SoloLearn</p>
+                    <span class="certificate-status">Completed</span>
+                </div>
+            </div>
+
+            <div class="certificate-card" onclick="openModal('https://via.placeholder.com/600x400/8b5cf6/ffffff?text=JavaScript')">
+                <div class="certificate-image">
+                    <img src="https://via.placeholder.com/400x220/8b5cf6/ffffff?text=JavaScript" alt="JS" class="certificate-img">
+                </div>
+                <div class="certificate-info">
+                    <h3>JavaScript Course</h3>
+                    <p>SoloLearn</p>
+                    <span class="certificate-status">In Progress</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Anggi Amelia Hermawan. All Rights Reserved.</p>
+    </footer>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImg">
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.progress-bar').forEach(bar => {
+                        const percent = bar.getAttribute('data-percent');
+                        const offset = 440 - (440 * percent / 100);
+                        bar.style.strokeDashoffset = offset;
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('#skills'));
+
+        function openModal(src) {
+            const modal = document.getElementById('imageModal');
+            const img = document.getElementById('modalImg');
+            modal.style.display = 'block';
+            img.src = src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>
